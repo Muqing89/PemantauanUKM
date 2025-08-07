@@ -1,0 +1,6 @@
+<resources>
+    <!-- Base application theme for Jetpack Compose -->
+    <style name="Theme.PemantauanUKM" parent="Theme.Material3.DayNight">
+        <!-- Tambahkan atribut tema di sini jika diperlukan -->
+    </style>
+</resources>
