@@ -31,26 +31,18 @@ fun LoginScreen(
     val loginState by loginViewModel.loginState.collectAsState()
 
     LaunchedEffect(loginState) {
-        when (loginState) {
-            true -> {
-                // Jika login sukses, cek role dan navigasi
-                val role = sharedPrefManager.getRole()
-                if (role == "ormawa") {
-                    navController.navigate(Routes.DASHBOARD_ORMAWA) {
-                        popUpTo(Routes.LOGIN) { inclusive = true }
-                    }
-                } else if (role == "admin") {
-                    navController.navigate(Routes.DASHBOARD_ADMIN) {
-                        popUpTo(Routes.LOGIN) { inclusive = true }
-                    }
+        loginState?.let {
+            if (it) {
+                navController.navigate(Routes.DASHBOARD_ORMAWA) {
+                    popUpTo(Routes.LOGIN) { inclusive = true }
                 }
-            }
-            false -> {
+            } else {
                 Toast.makeText(context, "Username atau password salah", Toast.LENGTH_SHORT).show()
+                loginViewModel.resetLoginState() // <- penting agar Toast bisa muncul lagi di login berikutnya
             }
-            else -> { /* belum login, tidak melakukan apa-apa */ }
         }
     }
+
 
     Column(
         modifier = Modifier
@@ -90,6 +82,12 @@ fun LoginScreen(
             modifier = Modifier.fillMaxWidth()
         ) {
             Text("Login")
+        }
+
+        TextButton(onClick = {
+            navController.navigate(Routes.REGISTER)
+        }) {
+            Text("Belum punya akun? Daftar")
         }
     }
 }

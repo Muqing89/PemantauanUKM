@@ -2,6 +2,7 @@ package com.example.pemantauanukm.navigation
 
 object Routes {
     const val LOGIN = "login"
+    const val REGISTER = "register"
     const val DASHBOARD_ORMAWA = "dashboard"
     const val DASHBOARD_ADMIN = "dashboard_admin"
     const val KEGIATAN_LIST = "list_kegiatan"

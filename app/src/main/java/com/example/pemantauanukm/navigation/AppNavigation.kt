@@ -12,20 +12,32 @@ import com.example.pemantauanukm.data.local.database.KegiatanRepository
 import com.example.pemantauanukm.screen.dashboard.DashboardOrmawa
 import com.example.pemantauanukm.screen.kegiatan.*
 import com.example.pemantauanukm.screen.login.LoginScreen
+import com.example.pemantauanukm.screen.login.RegisterScreen
 import com.example.pemantauanukm.utils.SharedPrefManager
 import com.example.pemantauanukm.viewmodel.KegiatanViewModel
 import com.example.pemantauanukm.viewmodel.KegiatanViewModelFactory
 
 @Composable
-fun AppNavigation(navController: NavHostController, database: AppDatabase, sharedPrefManager: SharedPrefManager) {
+fun AppNavigation(
+    navController: NavHostController,
+    database: AppDatabase,
+    sharedPrefManager: SharedPrefManager
+) {
     val repository = KegiatanRepository(database.kegiatanDao())
     val viewModel: KegiatanViewModel = viewModel(factory = KegiatanViewModelFactory(repository))
 
     NavHost(navController = navController, startDestination = Routes.LOGIN) {
+
         composable(Routes.LOGIN) {
             val context = LocalContext.current
-            val sharedPrefManager = remember { SharedPrefManager(context) }
-            LoginScreen(navController, sharedPrefManager)
+            val sharedPref = remember { SharedPrefManager(context) }
+            LoginScreen(navController, sharedPref)
+        }
+
+        composable(Routes.REGISTER) {
+            val context = LocalContext.current
+            val sharedPref = remember { SharedPrefManager(context) }
+            RegisterScreen(navController, sharedPref)
         }
 
         composable(Routes.DASHBOARD_ORMAWA) {
