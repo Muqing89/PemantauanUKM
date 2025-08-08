@@ -4,6 +4,9 @@ import kotlin.text.insert
 
 import kotlinx.coroutines.flow.Flow
 
+// KegiatanRepository yang kamu tulis ini fungsinya sebagai
+// jembatan antara ViewModel dan KegiatanDao dari AppDatabase.
+
 class KegiatanRepository(private val dao: KegiatanDao) {
 
     fun getAllKegiatan(): Flow<List<KegiatanEntity>> = dao.getAllKegiatan()

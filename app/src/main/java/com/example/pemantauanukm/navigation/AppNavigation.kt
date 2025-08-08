@@ -17,6 +17,9 @@ import com.example.pemantauanukm.utils.SharedPrefManager
 import com.example.pemantauanukm.viewmodel.KegiatanViewModel
 import com.example.pemantauanukm.viewmodel.KegiatanViewModelFactory
 
+// Kode AppNavigation yang kamu tulis ini adalah
+// pusat pengatur navigasi di aplikasi Jetpack Compose kamu.
+
 @Composable
 fun AppNavigation(
     navController: NavHostController,

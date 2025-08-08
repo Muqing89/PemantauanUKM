@@ -1,10 +1,13 @@
 package com.example.pemantauanukm.navigation
 
+// Routes yang kamu tulis ini adalah tempat penyimpanan
+// semua rute/URL internal untuk navigasi antar screen
+// di aplikasi Jetpack Compose.
+
 object Routes {
     const val LOGIN = "login"
     const val REGISTER = "register"
     const val DASHBOARD_ORMAWA = "dashboard"
-    const val DASHBOARD_ADMIN = "dashboard_admin"
     const val KEGIATAN_LIST = "list_kegiatan"
     const val TAMBAH_KEGIATAN = "tambah_kegiatan"
     const val EDIT_KEGIATAN = "edit_kegiatan/{id}"

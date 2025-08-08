@@ -3,6 +3,8 @@ package com.example.pemantauanukm.data.local.database
 import androidx.room.*
 import kotlinx.coroutines.flow.Flow
 
+// interface berisi query untuk mengelola data (KegiatanDao)
+
 @Dao
 interface KegiatanDao {
 
